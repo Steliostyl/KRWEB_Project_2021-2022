@@ -1,0 +1,61 @@
+CLASSES
+!6+ κλάσεις που προκύπτουν από λογική σύνθεση άλλων από τις οποίες:
+
+-2 χρησιμοποιούν τομή στον ορισμό τους:
+GamingComputer (Computer and hasComponent min 1 dGPU)
+Manager (Staff and (isManager min 1 Store))
+
+-2 χρησιμοποιούν ένωση στον ορισμό τους:
+ElectronicsStore (sells some Computer or Component or TV)
+HighEndTV (TV and hasPanelTechnology QLED or OLED)
+
+-2  χρησιμοποιούν συμπλήρωμα στον ορισμό τους:
+OfficeComputer (Computer and not GamingComputer)
+OfficeMonitor (Monitor and not GamingMonitor)
+
+!5+ κλάσεις που προκύπτουν από περιορισμό σε σχέσεις από τις οποίες:
+
+-2 χρησιμοποιούν existential restriction (someValuesFrom)
+ElectronicsStore (sells some Computer or Component or TV)
+MegaStore (sells some computer and some TV and...)
+
+-2 χρησιμοποιούν universal restriction (allValuesFrom)
+TVStore (sells only TV)
+ShoeStore (sells only Shoes)
+
+-2 έχουν συγκεκριμένη τιμή (hasValue)
+HighEndTV (hasPanelTechnology QLED or OLED)
+WirelessMouse (isWireless = True)
+
+-2 έχουν minimum/maximum cardinality
+GamingComputer (hasdGPU min 1 dGPU)
+Staff (isWorkingAtStore min 1 Store)
+
+PROPERTIES
+-4 subproperties
+Όλες οι υπο-ιδιότητες του hasComponent (11)
+hasManager
+isManager
++ πολλές ιδιότητες δεδομένων.
+
+-4 inverse of
+isInComputer (hasComponent)
+isSoldBy (sells)
+isSupervisorOf (hasSupervisor)
+isWorkingAtStore (hasPersonnel)
+
+-2 symmetric
+isCompatibleWith
+worksWith
+
+-2 transitive
+isSupervisorOf
+hasSupervisor
+
+-2 functional
+isManager
+hasMotherboard
+
+-2 inverse functional
+hasManager
+isMotherboardOfComputer
